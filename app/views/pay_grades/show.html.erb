@@ -1,0 +1,13 @@
+<p>
+  <b>Pay grade:</b>
+  <%=h @pay_grade.pay_grade %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @pay_grade.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_pay_grade_path(@pay_grade) %> |
+<%= link_to 'Back', pay_grades_path %>

@@ -1,0 +1,22 @@
+<h1>Listing pay_grades</h1>
+
+<table>
+  <tr>
+    <th>Pay grade</th>
+    <th>Description</th>
+  </tr>
+
+<% @pay_grades.each do |pay_grade| %>
+  <tr>
+    <td><%=h pay_grade.pay_grade %></td>
+    <td><%=h pay_grade.description %></td>
+    <td><%= link_to 'Show', pay_grade %></td>
+    <td><%= link_to 'Edit', edit_pay_grade_path(pay_grade) %></td>
+    <td><%= link_to 'Destroy', pay_grade, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New pay_grade', new_pay_grade_path %>

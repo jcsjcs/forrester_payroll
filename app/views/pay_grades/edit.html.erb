@@ -1,0 +1,20 @@
+<h1>Editing pay_grade</h1>
+
+<% form_for(@pay_grade) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :pay_grade %><br />
+    <%= f.text_field :pay_grade %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @pay_grade %> |
+<%= link_to 'Back', pay_grades_path %>
