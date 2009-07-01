@@ -9,13 +9,60 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090628150633) do
+ActiveRecord::Schema.define(:version => 20090630203408) do
 
-  create_table "pay_grades", :force => true do |t|
-    t.integer  "pay_grade"
-    t.string   "description"
+  create_table "party_role_types", :force => true do |t|
+    t.string   "name",          :default => "", :null => false
+    t.text     "description"
+    t.integer  "party_type_id"
+    t.integer  "role_type_id"
+    t.datetime "valid_from",                    :null => false
+    t.datetime "valid_until",                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "created_by",    :default => "", :null => false
+    t.string   "updated_by"
   end
+
+  add_index "party_role_types", ["name", "valid_from"], :name => "index_party_role_types_on_name_and_valid_from", :unique => true
+
+  create_table "party_types", :force => true do |t|
+    t.string   "name",        :default => "", :null => false
+    t.text     "description"
+    t.datetime "valid_from",                  :null => false
+    t.datetime "valid_until",                 :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "created_by",  :default => "", :null => false
+    t.string   "updated_by"
+  end
+
+  add_index "party_types", ["name"], :name => "index_party_types_on_name", :unique => true
+
+  create_table "pay_grades", :force => true do |t|
+    t.string   "pay_grade",   :default => "", :null => false
+    t.string   "description"
+    t.datetime "valid_from",                  :null => false
+    t.datetime "valid_until",                 :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "created_by",  :default => "", :null => false
+    t.string   "updated_by"
+  end
+
+  add_index "pay_grades", ["pay_grade", "valid_from"], :name => "index_pay_grades_on_pay_grade_and_valid_from", :unique => true
+
+  create_table "role_types", :force => true do |t|
+    t.string   "name",        :default => "", :null => false
+    t.text     "description"
+    t.datetime "valid_from",                  :null => false
+    t.datetime "valid_until",                 :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "created_by",  :default => "", :null => false
+    t.string   "updated_by"
+  end
+
+  add_index "role_types", ["name", "valid_from"], :name => "index_role_types_on_name_and_valid_from", :unique => true
 
 end
