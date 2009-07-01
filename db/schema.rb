@@ -12,10 +12,16 @@
 ActiveRecord::Schema.define(:version => 20090628150633) do
 
   create_table "pay_grades", :force => true do |t|
-    t.integer  "pay_grade"
+    t.string   "pay_grade",   :null => false
     t.string   "description"
+    t.datetime "valid_from",  :null => false
+    t.datetime "valid_until", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "created_by",  :null => false
+    t.string   "updated_by"
   end
+
+  add_index "pay_grades", ["pay_grade", "valid_from"], :name => "index_pay_grades_on_pay_grade_and_valid_from", :unique => true
 
 end
