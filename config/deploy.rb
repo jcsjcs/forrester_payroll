@@ -34,13 +34,13 @@ namespace :deploy do
   desc "Start the server"
   task :start, :roles => :app do
     #run "mongrel_rails start -e production -c #{current_path} -d -p 3000"
-    run "mongrel_gogetaquote start"
+    run "./mongrel_gogetaquote start"
   end
 
   desc "Stop the server"
   task :stop, :roles => :app do
     #run "mongrel_rails stop -c #{current_path}"
-    run "mongrel_gogetaquote stop"
+    run "./mongrel_gogetaquote stop"
   end
 
   desc "Restart the server"
