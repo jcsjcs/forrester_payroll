@@ -9,22 +9,59 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090630203408) do
+ActiveRecord::Schema.define(:version => 20090702144100) do
+
+  create_table "individuals", :force => true do |t|
+    t.string   "familyname"
+    t.string   "givenname"
+    t.date     "birth_date"
+    t.integer  "id_type"
+    t.string   "id_number"
+    t.datetime "valid_from"
+    t.datetime "valid_until"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "parties", :force => true do |t|
+    t.integer  "party_type_id"
+    t.integer  "iparty_id"
+    t.string   "iparty_type"
+    t.datetime "valid_from"
+    t.datetime "valid_until"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "party_role_types", :force => true do |t|
-    t.string   "name",          :default => "", :null => false
+    t.string   "name"
     t.text     "description"
     t.integer  "party_type_id"
     t.integer  "role_type_id"
-    t.datetime "valid_from",                    :null => false
-    t.datetime "valid_until",                   :null => false
+    t.datetime "valid_from"
+    t.datetime "valid_until"
+    t.string   "created_by"
+    t.string   "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "created_by",    :default => "", :null => false
-    t.string   "updated_by"
   end
 
-  add_index "party_role_types", ["name", "valid_from"], :name => "index_party_role_types_on_name_and_valid_from", :unique => true
+  add_index "party_role_types", ["name"], :name => "index_party_role_types_on_name", :unique => true
+
+  create_table "party_roles", :force => true do |t|
+    t.integer  "party_id"
+    t.integer  "role_type_id"
+    t.datetime "valid_from"
+    t.datetime "valid_until"
+    t.string   "created_by"
+    t.string   "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "party_types", :force => true do |t|
     t.string   "name",        :default => "", :null => false
@@ -63,6 +100,6 @@ ActiveRecord::Schema.define(:version => 20090630203408) do
     t.string   "updated_by"
   end
 
-  add_index "role_types", ["name", "valid_from"], :name => "index_role_types_on_name_and_valid_from", :unique => true
+  add_index "role_types", ["name"], :name => "index_role_types_on_name", :unique => true
 
 end

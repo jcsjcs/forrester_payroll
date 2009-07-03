@@ -1,0 +1,24 @@
+<h1>Listing party_roles</h1>
+
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Played by</th>
+    <th>Validity Period</th>
+  </tr>
+
+<% @party_roles.each do |party_role| %>
+  <tr>
+    <td><%=h party_role.role_type.name %></td>
+    <td><%=h party_role.party.iparty.name_string %></td>
+    <td><%=h party_role.valid_from.to_date %> to <%=h party_role.valid_until.to_date %></td>
+    <td><%= link_to 'Show', party_role %></td>
+    <td><%= link_to 'Edit', edit_party_role_path(party_role) %></td>
+    <td><%= link_to 'Destroy', party_role, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New party_role', new_party_role_path %>

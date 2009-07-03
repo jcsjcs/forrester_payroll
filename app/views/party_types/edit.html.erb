@@ -1,0 +1,32 @@
+<h1>Editing party_type</h1>
+
+<% form_for(@party_type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :cols => 20, :rows => 4 %>
+  </p>
+  <p>
+    <%= f.label :updated_by %><br />
+    <%= f.text_field :created_by %>
+  </p>
+  <p>
+    <%= f.label :valid_from %><br />
+    <%= f.date_select :valid_from %>
+  </p>
+  <p>
+    <%= f.label :valid_until %><br />
+    <%= f.date_select :valid_until %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @party_type %> |
+<%= link_to 'Back', party_types_path %>

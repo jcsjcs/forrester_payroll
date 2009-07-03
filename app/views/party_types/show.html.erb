@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @party_type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @party_type.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_party_type_path(@party_type) %> |
+<%= link_to 'Back', party_types_path %>

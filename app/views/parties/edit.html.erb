@@ -1,0 +1,32 @@
+<h1>Editing party</h1>
+
+<% form_for(@party) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :belongs_to %><br />
+    <%= f.text_field :belongs_to %>
+  </p>
+  <p>
+    <%= f.label :valid_from %><br />
+    <%= f.datetime_select :valid_from %>
+  </p>
+  <p>
+    <%= f.label :valid_until %><br />
+    <%= f.datetime_select :valid_until %>
+  </p>
+  <p>
+    <%= f.label :created_by %><br />
+    <%= f.text_field :created_by %>
+  </p>
+  <p>
+    <%= f.label :updated_by %><br />
+    <%= f.text_field :updated_by %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @party %> |
+<%= link_to 'Back', parties_path %>

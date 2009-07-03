@@ -1,0 +1,48 @@
+<h1>Editing individual</h1>
+
+<% form_for(@individual) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :familyname %><br />
+    <%= f.text_field :familyname %>
+  </p>
+  <p>
+    <%= f.label :givenname %><br />
+    <%= f.text_field :givenname %>
+  </p>
+  <p>
+    <%= f.label :birth_date %><br />
+    <%= f.date_select :birth_date %>
+  </p>
+  <p>
+    <%= f.label :id_type %><br />
+    <%= f.text_field :id_type %>
+  </p>
+  <p>
+    <%= f.label :id_number %><br />
+    <%= f.text_field :id_number %>
+  </p>
+  <p>
+    <%= f.label :valid_from %><br />
+    <%= f.datetime_select :valid_from %>
+  </p>
+  <p>
+    <%= f.label :valid_until %><br />
+    <%= f.datetime_select :valid_until %>
+  </p>
+  <p>
+    <%= f.label :created_by %><br />
+    <%= f.text_field :created_by %>
+  </p>
+  <p>
+    <%= f.label :updated_by %><br />
+    <%= f.text_field :updated_by %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @individual %> |
+<%= link_to 'Back', individuals_path %>

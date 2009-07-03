@@ -1,0 +1,33 @@
+<p>
+  <b>Role:</b>
+  <%=h @party_role.role_type.name %>
+</p>
+
+<p>
+  <b>Party:</b>
+  <%=h @party_role.party.iparty.name_string %>
+</p>
+
+<p>
+  <b>Valid from:</b>
+  <%=h @party_role.valid_from %>
+</p>
+
+<p>
+  <b>Valid until:</b>
+  <%=h @party_role.valid_until %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%=h @party_role.created_by %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%=h @party_role.updated_by %>
+</p>
+
+
+<%= link_to 'Edit', edit_party_role_path(@party_role) %> |
+<%= link_to 'Back', party_roles_path %>

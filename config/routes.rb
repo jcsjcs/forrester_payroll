@@ -1,4 +1,16 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :party_roles
+
+  map.resources :individuals
+
+  map.resources :parties
+
+  map.resources :party_role_types
+
+  map.resources :role_types
+
+  map.resources :party_types
+
   map.resources :pay_grades
 
   # The priority is based upon order of creation: first created -> highest priority.

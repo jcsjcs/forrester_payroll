@@ -1,0 +1,48 @@
+<p>
+  <b>Familyname:</b>
+  <%=h @individual.familyname %>
+</p>
+
+<p>
+  <b>Givenname:</b>
+  <%=h @individual.givenname %>
+</p>
+
+<p>
+  <b>Birth date:</b>
+  <%=h @individual.birth_date %>
+</p>
+
+<p>
+  <b>Id type:</b>
+  <%=h @individual.id_type %>
+</p>
+
+<p>
+  <b>Id number:</b>
+  <%=h @individual.id_number %>
+</p>
+
+<p>
+  <b>Valid from:</b>
+  <%=h @individual.valid_from %>
+</p>
+
+<p>
+  <b>Valid until:</b>
+  <%=h @individual.valid_until %>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%=h @individual.created_by %>
+</p>
+
+<p>
+  <b>Updated by:</b>
+  <%=h @individual.updated_by %>
+</p>
+
+
+<%= link_to 'Edit', edit_individual_path(@individual) %> |
+<%= link_to 'Back', individuals_path %>

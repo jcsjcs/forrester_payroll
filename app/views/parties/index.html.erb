@@ -1,0 +1,25 @@
+<h1>Listing parties</h1>
+
+<table>
+  <tr>
+    <th>Party Type</th>
+    <th>Validity Period</th>
+  </tr>
+
+<% @parties.each do |party| %>
+  <tr>
+    <td><%=h party.party_type.name %></td>
+    <td><%=h party.valid_from.to_date %> to <td><%=h party.valid_until.to_date %></td>
+    <td><%= link_to 'Show', party %></td>
+    <td><%= link_to 'Edit', edit_party_path(party) %></td>
+    <td><%= link_to 'Destroy', party, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <tr>
+    <%= render :partial => "/shared/#{party.party_type.name.downcase}", :locals => {:iparty => party.iparty} %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New party', new_party_path %>

@@ -1,0 +1,2 @@
+module PartyTypesHelper
+end

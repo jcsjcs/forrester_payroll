@@ -1,0 +1,24 @@
+<h1>Listing party_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Validity Period</th>
+  </tr>
+
+<% @party_types.each do |party_type| %>
+  <tr>
+    <td><%=h party_type.name %></td>
+    <td><%=h party_type.description %></td>
+    <td><%=h party_type.valid_from.to_date %> to <%=h party_type.valid_until.to_date %></td>
+    <td><%= link_to 'Show', party_type %></td>
+    <td><%= link_to 'Edit', edit_party_type_path(party_type) %></td>
+    <td><%= link_to 'Destroy', party_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New party_type', new_party_type_path %>
